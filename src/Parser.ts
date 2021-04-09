@@ -150,6 +150,11 @@ export interface ParserOptions {
      * Allows the default tokenizer to be overwritten.
      */
     Tokenizer?: typeof Tokenizer;
+
+    /**
+     * Allows specifying custom elements that have no closing tag.
+     */
+    customVoidElements?: string[]
 }
 
 export interface Handler {
@@ -206,6 +211,7 @@ export class Parser {
     private readonly lowerCaseTagNames: boolean;
     private readonly lowerCaseAttributeNames: boolean;
     private readonly tokenizer: Tokenizer;
+    private readonly voidElements: typeof voidElements;
 
     constructor(cbs: Partial<Handler> | null, options: ParserOptions = {}) {
         this.options = options;
@@ -218,6 +224,8 @@ export class Parser {
             this
         );
         this.cbs.onparserinit?.(this);
+        this.voidElements = new Set(voidElements)
+        options.customVoidElements?.forEach(s => this.voidElements.add(s))
     }
 
     private updatePosition(initialOffset: number) {
@@ -259,7 +267,7 @@ export class Parser {
                 this.onclosetag(el);
             }
         }
-        if (this.options.xmlMode || !voidElements.has(name)) {
+        if (this.options.xmlMode || !this.voidElements.has(name)) {
             this.stack.push(name);
             if (foreignContextElements.has(name)) {
                 this.foreignContext.push(true);
@@ -280,7 +288,7 @@ export class Parser {
         if (
             !this.options.xmlMode &&
             this.cbs.onclosetag &&
-            voidElements.has(this.tagname)
+            this.voidElements.has(this.tagname)
         ) {
             this.cbs.onclosetag(this.tagname);
         }
@@ -300,7 +308,7 @@ export class Parser {
         }
         if (
             this.stack.length &&
-            (this.options.xmlMode || !voidElements.has(name))
+            (this.options.xmlMode || !this.voidElements.has(name))
         ) {
             let pos = this.stack.lastIndexOf(name);
             if (pos !== -1) {

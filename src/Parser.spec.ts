@@ -126,4 +126,25 @@ describe("API", () => {
         );
         p.done();
     });
+
+    test("should support custom voidElements", () => {
+        let index = 0;
+        let expects = ['abc', 'bar', 'a', 'b']
+        let finished = false;
+        const p = new Parser({
+            onend() {
+                finished = true;
+            },
+            onclosetag(name) {
+                expect(name).toBe(expects[index]);
+                index++;
+            },
+        }, {
+            customVoidElements: ['abc'],
+        });
+
+        p.end("<abc><a><bar></a><b></b>");
+
+        expect(finished).toBeTruthy();
+    });
 });

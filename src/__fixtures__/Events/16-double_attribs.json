@@ -4,15 +4,33 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["h1"]
+            "data": [
+                "h1"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["class", "test", null]
+            "data": [
+                [
+                    "class"
+                ],
+                [
+                    "test"
+                ],
+                null
+            ]
         },
         {
             "event": "attribute",
-            "data": ["class", "boo", null]
+            "data": [
+                [
+                    "class"
+                ],
+                [
+                    "boo"
+                ],
+                null
+            ]
         },
         {
             "event": "opentag",
@@ -20,12 +38,15 @@
                 "h1",
                 {
                     "class": "test"
-                }
+                },
+                null
             ]
         },
         {
             "event": "closetag",
-            "data": ["h1"]
+            "data": [
+                "h1"
+            ]
         }
     ]
 }

@@ -4,24 +4,34 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["foo"]
+            "data": [
+                "foo"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["bar", ""]
+            "data": [
+                [
+                    "bar"
+                ],
+                []
+            ]
         },
         {
             "event": "opentag",
             "data": [
                 "foo",
                 {
-                    "bar": ""
-                }
+                    "bar": true
+                },
+                null
             ]
         },
         {
             "event": "closetag",
-            "data": ["foo"]
+            "data": [
+                "foo"
+            ]
         }
     ]
 }

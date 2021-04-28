@@ -1,4 +1,5 @@
 import { Parser, Tokenizer } from ".";
+import { Attributes, DynamicContent, Interpolation, ParsedAttribute } from "./Parser";
 
 describe("API", () => {
     test("should work without callbacks", () => {
@@ -124,6 +125,53 @@ describe("API", () => {
             },
             { Tokenizer: CustomTokenizer }
         );
-        p.done();
+        p.end();
+    });
+
+    test("should parse interpolated attributes (Lancer)", () => {
+        let finished = false;
+        let name = '';
+        let attrs = {} as Attributes;
+        let iattrs = [] as ParsedAttribute[]
+        const p = new Parser({
+            onopentag(_name, _attrs, _iattrs) {
+                name = _name;
+                attrs = _attrs as any;
+                iattrs = _iattrs as any;
+            },
+            onend() {
+                finished = true;
+            },
+        });
+
+        p.end(`<div a="10" b="{{20}}" c="x{{ 3 + 0 }}y" {{d}} {{e + e }}="40" f="50" ></div>`);
+
+        expect(finished).toBe(true);
+        expect(name).toBe('div');
+        expect(attrs).toEqual({ a: '10', f: '50' });
+
+        expect(iattrs).toHaveLength(4);
+        expect(iattrs[0]).toEqual([['b'], [new Interpolation('20')]]);
+        expect(iattrs[1]).toEqual([['c'], ['x', new Interpolation(' 3 + 0 '), 'y']]);
+        expect(iattrs[2]).toEqual([[new Interpolation('d')], []]);
+        expect(iattrs[3]).toEqual([[new Interpolation('e + e ')], ['40']]);
+    });
+
+    test("should parse interpolated text (Lancer)", () => {
+        let finished = false;
+        let text = [] as DynamicContent;
+        const p = new Parser({
+            ontext(data) {
+                text.push(data);
+            },
+            onend() {
+                finished = true;
+            },
+        });
+
+        p.end(`<div>a {{ b + 1}} c </div>`);
+
+        expect(finished).toBe(true);
+        expect(text).toEqual(['a ', new Interpolation(' b + 1'), ' c '])
     });
 });

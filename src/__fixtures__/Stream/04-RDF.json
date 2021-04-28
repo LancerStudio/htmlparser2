@@ -1,71 +1,136 @@
 {
     "name": "RDF feed",
-    "options": { "xmlMode": true },
+    "options": {
+        "xmlMode": true
+    },
     "file": "RDF_Example.xml",
     "expected": [
         {
             "event": "processinginstruction",
-            "data": ["?xml", "?xml version=\"1.0\" encoding=\"UTF-8\"?"]
+            "data": [
+                "?xml",
+                "?xml version=\"1.0\" encoding=\"UTF-8\"?"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["rdf:RDF"]
-        },
-        {
-            "event": "attribute",
             "data": [
-                "xmlns:rdf",
-                "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "\""
+                "rdf:RDF"
             ]
         },
         {
             "event": "attribute",
-            "data": ["xmlns", "http://purl.org/rss/1.0/", "\""]
-        },
-        {
-            "event": "attribute",
-            "data": ["xmlns:ev", "http://purl.org/rss/1.0/modules/event/", "\""]
-        },
-        {
-            "event": "attribute",
             "data": [
-                "xmlns:content",
-                "http://purl.org/rss/1.0/modules/content/",
+                [
+                    "xmlns:rdf"
+                ],
+                [
+                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                ],
                 "\""
             ]
         },
         {
             "event": "attribute",
             "data": [
-                "xmlns:taxo",
-                "http://purl.org/rss/1.0/modules/taxonomy/",
+                [
+                    "xmlns"
+                ],
+                [
+                    "http://purl.org/rss/1.0/"
+                ],
                 "\""
             ]
-        },
-        {
-            "event": "attribute",
-            "data": ["xmlns:dc", "http://purl.org/dc/elements/1.1/", "\""]
         },
         {
             "event": "attribute",
             "data": [
-                "xmlns:syn",
-                "http://purl.org/rss/1.0/modules/syndication/",
+                [
+                    "xmlns:ev"
+                ],
+                [
+                    "http://purl.org/rss/1.0/modules/event/"
+                ],
                 "\""
             ]
         },
         {
             "event": "attribute",
-            "data": ["xmlns:dcterms", "http://purl.org/dc/terms/", "\""]
+            "data": [
+                [
+                    "xmlns:content"
+                ],
+                [
+                    "http://purl.org/rss/1.0/modules/content/"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["xmlns:admin", "http://webns.net/mvcb/", "\""]
+            "data": [
+                [
+                    "xmlns:taxo"
+                ],
+                [
+                    "http://purl.org/rss/1.0/modules/taxonomy/"
+                ],
+                "\""
+            ]
+        },
+        {
+            "event": "attribute",
+            "data": [
+                [
+                    "xmlns:dc"
+                ],
+                [
+                    "http://purl.org/dc/elements/1.1/"
+                ],
+                "\""
+            ]
+        },
+        {
+            "event": "attribute",
+            "data": [
+                [
+                    "xmlns:syn"
+                ],
+                [
+                    "http://purl.org/rss/1.0/modules/syndication/"
+                ],
+                "\""
+            ]
+        },
+        {
+            "event": "attribute",
+            "data": [
+                [
+                    "xmlns:dcterms"
+                ],
+                [
+                    "http://purl.org/dc/terms/"
+                ],
+                "\""
+            ]
+        },
+        {
+            "event": "attribute",
+            "data": [
+                [
+                    "xmlns:admin"
+                ],
+                [
+                    "http://webns.net/mvcb/"
+                ],
+                "\""
+            ]
         },
         {
             "event": "opentag",
@@ -81,20 +146,33 @@
                     "xmlns:syn": "http://purl.org/rss/1.0/modules/syndication/",
                     "xmlns:dcterms": "http://purl.org/dc/terms/",
                     "xmlns:admin": "http://webns.net/mvcb/"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["channel"]
+            "data": [
+                "channel"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["rdf:about", "https://github.com/fb55/htmlparser2/", "\""]
+            "data": [
+                [
+                    "rdf:about"
+                ],
+                [
+                    "https://github.com/fb55/htmlparser2/"
+                ],
+                "\""
+            ]
         },
         {
             "event": "opentag",
@@ -102,302 +180,481 @@
                 "channel",
                 {
                     "rdf:about": "https://github.com/fb55/htmlparser2/"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["A title to parse and remember"]
+            "data": [
+                "A title to parse and remember"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["link", {}]
+            "data": [
+                "link",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["https://github.com/fb55/htmlparser2/"]
+            "data": [
+                "https://github.com/fb55/htmlparser2/"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["description", {}]
+            "data": [
+                "description",
+                null,
+                null
+            ]
         },
         {
             "event": "closetag",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:language"]
+            "data": [
+                "dc:language"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:language", {}]
+            "data": [
+                "dc:language",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["en-us"]
+            "data": [
+                "en-us"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:language"]
+            "data": [
+                "dc:language"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:rights"]
+            "data": [
+                "dc:rights"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:rights", {}]
+            "data": [
+                "dc:rights",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Copyright 2015 the authors"]
+            "data": [
+                "Copyright 2015 the authors"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:rights"]
+            "data": [
+                "dc:rights"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:publisher"]
+            "data": [
+                "dc:publisher"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:publisher", {}]
+            "data": [
+                "dc:publisher",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["webmaster@thisisafakedoma.in"]
+            "data": [
+                "webmaster@thisisafakedoma.in"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:publisher"]
+            "data": [
+                "dc:publisher"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:creator"]
+            "data": [
+                "dc:creator"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:creator", {}]
+            "data": [
+                "dc:creator",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["webmaster@thisisafakedoma.in"]
+            "data": [
+                "webmaster@thisisafakedoma.in"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:creator"]
+            "data": [
+                "dc:creator"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:source"]
+            "data": [
+                "dc:source"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:source", {}]
+            "data": [
+                "dc:source",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["https://github.com/fb55/htmlparser2/"]
+            "data": [
+                "https://github.com/fb55/htmlparser2/"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:source"]
+            "data": [
+                "dc:source"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:title"]
+            "data": [
+                "dc:title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:title", {}]
+            "data": [
+                "dc:title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["A title to parse and remember"]
+            "data": [
+                "A title to parse and remember"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:title"]
+            "data": [
+                "dc:title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:type"]
+            "data": [
+                "dc:type"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:type", {}]
+            "data": [
+                "dc:type",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Collection"]
+            "data": [
+                "Collection"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:type"]
+            "data": [
+                "dc:type"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["syn:updateBase"]
+            "data": [
+                "syn:updateBase"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["syn:updateBase", {}]
+            "data": [
+                "syn:updateBase",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["2011-11-04T09:39:10-07:00"]
+            "data": [
+                "2011-11-04T09:39:10-07:00"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["syn:updateBase"]
+            "data": [
+                "syn:updateBase"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["syn:updateFrequency"]
+            "data": [
+                "syn:updateFrequency"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["syn:updateFrequency", {}]
+            "data": [
+                "syn:updateFrequency",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["4"]
+            "data": [
+                "4"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["syn:updateFrequency"]
+            "data": [
+                "syn:updateFrequency"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["syn:updatePeriod"]
+            "data": [
+                "syn:updatePeriod"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["syn:updatePeriod", {}]
+            "data": [
+                "syn:updatePeriod",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["hourly"]
+            "data": [
+                "hourly"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["syn:updatePeriod"]
+            "data": [
+                "syn:updatePeriod"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["items"]
+            "data": [
+                "items"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["items", {}]
+            "data": [
+                "items",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t\t"]
+            "data": [
+                "\n\t\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["rdf:Seq"]
+            "data": [
+                "rdf:Seq"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["rdf:Seq", {}]
+            "data": [
+                "rdf:Seq",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t\t\t"]
+            "data": [
+                "\n\t\t\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["rdf:li"]
+            "data": [
+                "rdf:li"
+            ]
         },
         {
             "event": "attribute",
             "data": [
-                "rdf:resource",
-                "http://somefakesite/path/to/something.html",
+                [
+                    "rdf:resource"
+                ],
+                [
+                    "http://somefakesite/path/to/something.html"
+                ],
                 "\""
             ]
         },
@@ -407,50 +664,73 @@
                 "rdf:li",
                 {
                     "rdf:resource": "http://somefakesite/path/to/something.html"
-                }
+                },
+                null
             ]
         },
         {
             "event": "closetag",
-            "data": ["rdf:li"]
+            "data": [
+                "rdf:li"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t\t"]
+            "data": [
+                "\n\t\t\t"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["rdf:Seq"]
+            "data": [
+                "rdf:Seq"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["items"]
+            "data": [
+                "items"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["channel"]
+            "data": [
+                "channel"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "attribute",
             "data": [
-                "rdf:about",
-                "http://somefakesite/path/to/something.html",
+                [
+                    "rdf:about"
+                ],
+                [
+                    "http://somefakesite/path/to/something.html"
+                ],
                 "\""
             ]
         },
@@ -460,20 +740,29 @@
                 "item",
                 {
                     "rdf:about": "http://somefakesite/path/to/something.html"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "cdatastart",
@@ -481,7 +770,9 @@
         },
         {
             "event": "text",
-            "data": [" Fast HTML Parsing "]
+            "data": [
+                " Fast HTML Parsing "
+            ]
         },
         {
             "event": "cdataend",
@@ -489,39 +780,61 @@
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["link", {}]
+            "data": [
+                "link",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\nhttp://somefakesite/path/to/something.html\n"]
+            "data": [
+                "\nhttp://somefakesite/path/to/something.html\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["description", {}]
+            "data": [
+                "description",
+                null,
+                null
+            ]
         },
         {
             "event": "cdatastart",
@@ -539,99 +852,157 @@
         },
         {
             "event": "closetag",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:date"]
+            "data": [
+                "dc:date"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:date", {}]
+            "data": [
+                "dc:date",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["2011-11-04T09:35:17-07:00"]
+            "data": [
+                "2011-11-04T09:35:17-07:00"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:date"]
+            "data": [
+                "dc:date"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:language"]
+            "data": [
+                "dc:language"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:language", {}]
+            "data": [
+                "dc:language",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["en-us"]
+            "data": [
+                "en-us"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:language"]
+            "data": [
+                "dc:language"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:rights"]
+            "data": [
+                "dc:rights"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:rights", {}]
+            "data": [
+                "dc:rights",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Copyright 2015 the authors"]
+            "data": [
+                "Copyright 2015 the authors"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:rights"]
+            "data": [
+                "dc:rights"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:source"]
+            "data": [
+                "dc:source"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:source", {}]
+            "data": [
+                "dc:source",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\nhttp://somefakesite/path/to/something.html\n"]
+            "data": [
+                "\nhttp://somefakesite/path/to/something.html\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:source"]
+            "data": [
+                "dc:source"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:title"]
+            "data": [
+                "dc:title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:title", {}]
+            "data": [
+                "dc:title",
+                null,
+                null
+            ]
         },
         {
             "event": "cdatastart",
@@ -639,7 +1010,9 @@
         },
         {
             "event": "text",
-            "data": [" Fast HTML Parsing "]
+            "data": [
+                " Fast HTML Parsing "
+            ]
         },
         {
             "event": "cdataend",
@@ -647,69 +1020,107 @@
         },
         {
             "event": "closetag",
-            "data": ["dc:title"]
+            "data": [
+                "dc:title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:type"]
+            "data": [
+                "dc:type"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:type", {}]
+            "data": [
+                "dc:type",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["text"]
+            "data": [
+                "text"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:type"]
+            "data": [
+                "dc:type"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dcterms:issued"]
+            "data": [
+                "dcterms:issued"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dcterms:issued", {}]
+            "data": [
+                "dcterms:issued",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["2011-11-04T09:35:17-07:00"]
+            "data": [
+                "2011-11-04T09:35:17-07:00"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dcterms:issued"]
+            "data": [
+                "dcterms:issued"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "attribute",
             "data": [
-                "rdf:about",
-                "http://somefakesite/path/to/something-else.html",
+                [
+                    "rdf:about"
+                ],
+                [
+                    "http://somefakesite/path/to/something-else.html"
+                ],
                 "\""
             ]
         },
@@ -719,20 +1130,29 @@
                 "item",
                 {
                     "rdf:about": "http://somefakesite/path/to/something-else.html"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "cdatastart",
@@ -740,7 +1160,9 @@
         },
         {
             "event": "text",
-            "data": ["\nThis space intentionally left blank\n"]
+            "data": [
+                "\nThis space intentionally left blank\n"
+            ]
         },
         {
             "event": "cdataend",
@@ -748,39 +1170,61 @@
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["link", {}]
+            "data": [
+                "link",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\nhttp://somefakesite/path/to/something-else.html\n"]
+            "data": [
+                "\nhttp://somefakesite/path/to/something-else.html\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["description", {}]
+            "data": [
+                "description",
+                null,
+                null
+            ]
         },
         {
             "event": "cdatastart",
@@ -788,7 +1232,9 @@
         },
         {
             "event": "text",
-            "data": ["\nThe early bird gets the worm\n"]
+            "data": [
+                "\nThe early bird gets the worm\n"
+            ]
         },
         {
             "event": "cdataend",
@@ -796,99 +1242,157 @@
         },
         {
             "event": "closetag",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:date"]
+            "data": [
+                "dc:date"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:date", {}]
+            "data": [
+                "dc:date",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["2011-11-04T09:34:54-07:00"]
+            "data": [
+                "2011-11-04T09:34:54-07:00"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:date"]
+            "data": [
+                "dc:date"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:language"]
+            "data": [
+                "dc:language"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:language", {}]
+            "data": [
+                "dc:language",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["en-us"]
+            "data": [
+                "en-us"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:language"]
+            "data": [
+                "dc:language"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:rights"]
+            "data": [
+                "dc:rights"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:rights", {}]
+            "data": [
+                "dc:rights",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Copyright 2015 the authors"]
+            "data": [
+                "Copyright 2015 the authors"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:rights"]
+            "data": [
+                "dc:rights"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:source"]
+            "data": [
+                "dc:source"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:source", {}]
+            "data": [
+                "dc:source",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\nhttp://somefakesite/path/to/something-else.html\n"]
+            "data": [
+                "\nhttp://somefakesite/path/to/something-else.html\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:source"]
+            "data": [
+                "dc:source"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:title"]
+            "data": [
+                "dc:title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:title", {}]
+            "data": [
+                "dc:title",
+                null,
+                null
+            ]
         },
         {
             "event": "cdatastart",
@@ -896,7 +1400,9 @@
         },
         {
             "event": "text",
-            "data": ["\nThis space intentionally left blank\n"]
+            "data": [
+                "\nThis space intentionally left blank\n"
+            ]
         },
         {
             "event": "cdataend",
@@ -904,63 +1410,97 @@
         },
         {
             "event": "closetag",
-            "data": ["dc:title"]
+            "data": [
+                "dc:title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dc:type"]
+            "data": [
+                "dc:type"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dc:type", {}]
+            "data": [
+                "dc:type",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["text"]
+            "data": [
+                "text"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dc:type"]
+            "data": [
+                "dc:type"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["dcterms:issued"]
+            "data": [
+                "dcterms:issued"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["dcterms:issued", {}]
+            "data": [
+                "dcterms:issued",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["2011-11-04T09:34:54-07:00"]
+            "data": [
+                "2011-11-04T09:34:54-07:00"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["dcterms:issued"]
+            "data": [
+                "dcterms:issued"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["rdf:RDF"]
+            "data": [
+                "rdf:RDF"
+            ]
         }
     ]
 }

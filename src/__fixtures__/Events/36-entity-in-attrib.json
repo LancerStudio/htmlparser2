@@ -4,23 +4,43 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["img"]
+            "data": [
+                "img"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["src", "?&image_uri=1&ℑ=2&image=3", "\""]
+            "data": [
+                [
+                    "src"
+                ],
+                [
+                    "?&image_uri=1&ℑ=2&image=3"
+                ],
+                "\""
+            ]
         },
         {
             "event": "opentag",
-            "data": ["img", { "src": "?&image_uri=1&ℑ=2&image=3" }]
+            "data": [
+                "img",
+                {
+                    "src": "?&image_uri=1&ℑ=2&image=3"
+                },
+                null
+            ]
         },
         {
             "event": "closetag",
-            "data": ["img"]
+            "data": [
+                "img"
+            ]
         },
         {
             "event": "text",
-            "data": ["?&image_uri=1&ℑ=2&image=3"]
+            "data": [
+                "?&image_uri=1&ℑ=2&image=3"
+            ]
         }
     ]
 }

@@ -135,6 +135,7 @@ export function createSuite(
 
         fs.readdirSync(dir)
             .filter((file) => !file.startsWith(".") && !file.startsWith("_"))
+            // .filter((file) => !file.startsWith(".") && !file.startsWith("_"))
             .map((name) => path.join(dir, name))
             .map(require)
             .forEach(runTest);

@@ -4,11 +4,21 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["a"]
+            "data": [
+                "a"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["href", "http://test.com/", null]
+            "data": [
+                [
+                    "href"
+                ],
+                [
+                    "http://test.com/"
+                ],
+                null
+            ]
         },
         {
             "event": "opentag",
@@ -16,28 +26,41 @@
                 "a",
                 {
                     "href": "http://test.com/"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["Foo"]
+            "data": [
+                "Foo"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["a"]
+            "data": [
+                "a"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["hr"]
+            "data": [
+                "hr"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["hr", {}]
+            "data": [
+                "hr",
+                null,
+                null
+            ]
         },
         {
             "event": "closetag",
-            "data": ["hr"]
+            "data": [
+                "hr"
+            ]
         }
     ]
 }

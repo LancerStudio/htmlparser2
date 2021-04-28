@@ -4,91 +4,162 @@
     "expected": [
         {
             "event": "processinginstruction",
-            "data": ["!doctype", "!doctype html"]
+            "data": [
+                "!doctype",
+                "!doctype html"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["html"]
+            "data": [
+                "html"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["html", {}]
+            "data": [
+                "html",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["head"]
+            "data": [
+                "head"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["head", {}]
+            "data": [
+                "head",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["SVG test"]
+            "data": [
+                "SVG test"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["head"]
+            "data": [
+                "head"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["body"]
+            "data": [
+                "body"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["body", {}]
+            "data": [
+                "body",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["svg"]
+            "data": [
+                "svg"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["version", "1.1", "\""]
+            "data": [
+                [
+                    "version"
+                ],
+                [
+                    "1.1"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["xmlns", "http://www.w3.org/2000/svg", "\""]
+            "data": [
+                [
+                    "xmlns"
+                ],
+                [
+                    "http://www.w3.org/2000/svg"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["xmlns:xlink", "http://www.w3.org/1999/xlink", "\""]
+            "data": [
+                [
+                    "xmlns:xlink"
+                ],
+                [
+                    "http://www.w3.org/1999/xlink"
+                ],
+                "\""
+            ]
         },
         {
             "event": "opentag",
@@ -98,164 +169,257 @@
                     "version": "1.1",
                     "xmlns": "http://www.w3.org/2000/svg",
                     "xmlns:xlink": "http://www.w3.org/1999/xlink"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Test"]
+            "data": [
+                "Test"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["animate"]
+            "data": [
+                "animate"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["animate", {}]
+            "data": [
+                "animate",
+                null,
+                null
+            ]
         },
         {
             "event": "closetag",
-            "data": ["animate"]
+            "data": [
+                "animate"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["polygon"]
+            "data": [
+                "polygon"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["polygon", {}]
+            "data": [
+                "polygon",
+                null,
+                null
+            ]
         },
         {
             "event": "closetag",
-            "data": ["polygon"]
+            "data": [
+                "polygon"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["g"]
+            "data": [
+                "g"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["g", {}]
+            "data": [
+                "g",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t\t"]
+            "data": [
+                "\n\t\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["path"]
+            "data": [
+                "path"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["path", {}]
+            "data": [
+                "path",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t\t\t"]
+            "data": [
+                "\n\t\t\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["x"]
+            "data": [
+                "x"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t\t\t"]
+            "data": [
+                "\n\t\t\t\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["animate"]
+            "data": [
+                "animate"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["animate", {}]
+            "data": [
+                "animate",
+                null,
+                null
+            ]
         },
         {
             "event": "closetag",
-            "data": ["animate"]
+            "data": [
+                "animate"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t\t"]
+            "data": [
+                "\n\t\t\t"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["path"]
+            "data": [
+                "path"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t\t"]
+            "data": [
+                "\n\t\t"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["g"]
+            "data": [
+                "g"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["svg"]
+            "data": [
+                "svg"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["body"]
+            "data": [
+                "body"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["html"]
+            "data": [
+                "html"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         }
     ]
 }

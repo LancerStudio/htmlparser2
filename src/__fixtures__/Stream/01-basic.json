@@ -12,7 +12,7 @@
         },
         {
             "event": "opentag",
-            "data": ["html", {}]
+            "data": ["html", null, null]
         },
         {
             "event": "opentagname",
@@ -20,7 +20,7 @@
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": ["title", null, null]
         },
         {
             "event": "text",
@@ -36,7 +36,7 @@
         },
         {
             "event": "opentag",
-            "data": ["body", {}]
+            "data": ["body", null, null]
         },
         {
             "event": "text",

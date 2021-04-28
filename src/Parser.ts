@@ -98,6 +98,10 @@ const htmlIntegrationElements = new Set([
     "title",
 ]);
 
+export type Attributes = { [name: string]: string | true }
+export type DynamicContent = Array<string | Interpolation>
+export type ParsedAttribute = [DynamicContent, DynamicContent]
+
 export interface ParserOptions {
     /**
      * Indicates whether special tags (`<script>`, `<style>`, and `<title>`) should get special treatment
@@ -174,17 +178,18 @@ export interface Handler {
      * @param quote Quotes used around the attribute. `null` if the attribute has no quotes around the value, `undefined` if the attribute has no value.
      */
     onattribute(
-        name: string,
-        value: string,
+        name: DynamicContent,
+        value: DynamicContent,
         quote?: string | undefined | null
     ): void;
-    onopentag(name: string, attribs: { [s: string]: string }): void;
-    ontext(data: string): void;
+    onopentag(name: string, attribs: Attributes | null, iattribs: ParsedAttribute[] | null): void;
+    ontext(data: string | Interpolation): void;
     oncomment(data: string): void;
     oncdatastart(): void;
     oncdataend(): void;
     oncommentend(): void;
     onprocessinginstruction(name: string, data: string): void;
+    oninterpolate(code: string): void;
 }
 
 const reNameEnd = /\s|\//;
@@ -196,9 +201,10 @@ export class Parser {
     public endIndex: number | null = null;
 
     private tagname = "";
-    private attribname = "";
-    private attribvalue = "";
-    private attribs: null | { [key: string]: string } = null;
+    private attribname = [] as DynamicContent;
+    private attribvalue = [] as DynamicContent;
+    private attribs: Attributes | null= null;
+    private iattribs: [DynamicContent, DynamicContent][] | null= null;
     private stack: string[] = [];
     private readonly foreignContext: boolean[] = [];
     private readonly cbs: Partial<Handler>;
@@ -234,10 +240,10 @@ export class Parser {
     }
 
     // Tokenizer event handlers
-    ontext(data: string): void {
+    ontext(data: string, isInterpolate: boolean): void {
         this.updatePosition(1);
         (this.endIndex as number)--;
-        this.cbs.ontext?.(data);
+        this.cbs.ontext?.(isInterpolate ? new Interpolation(data) : data);
     }
 
     isVoidElement(name: string): boolean {
@@ -272,15 +278,13 @@ export class Parser {
             }
         }
         this.cbs.onopentagname?.(name);
-        if (this.cbs.onopentag) this.attribs = {};
     }
 
     onopentagend(): void {
         this.updatePosition(1);
-        if (this.attribs) {
-            this.cbs.onopentag?.(this.tagname, this.attribs);
-            this.attribs = null;
-        }
+        this.cbs.onopentag?.(this.tagname, this.attribs, this.iattribs);
+        this.attribs = null;
+        this.iattribs = null;
         if (this.cbs.onclosetag && this.isVoidElement(this.tagname)) {
             this.cbs.onclosetag(this.tagname);
         }
@@ -343,27 +347,48 @@ export class Parser {
         }
     }
 
-    onattribname(name: string): void {
+    onattribname(name: string, isInterpolate: boolean): void {
         if (this.lowerCaseAttributeNames) {
             name = name.toLowerCase();
         }
-        this.attribname = name;
+        this.attribname.push(isInterpolate ? new Interpolation(name) : name);
     }
 
-    onattribdata(value: string): void {
-        this.attribvalue += value;
+    onattribdata(value: string, isInterpolate: boolean): void {
+        this.attribvalue.push(isInterpolate ? new Interpolation(value) : value);
     }
 
     onattribend(quote: string | undefined | null): void {
-        this.cbs.onattribute?.(this.attribname, this.attribvalue, quote);
-        if (
-            this.attribs &&
-            !Object.prototype.hasOwnProperty.call(this.attribs, this.attribname)
-        ) {
-            this.attribs[this.attribname] = this.attribvalue;
+        if (this.attribvalue.length >= 2 && this.attribvalue.every(piece => typeof piece === 'string')) {
+            this.attribvalue = [this.attribvalue.join('')]
         }
-        this.attribname = "";
-        this.attribvalue = "";
+        this.cbs.onattribute?.(this.attribname, this.attribvalue, quote);
+
+        const simpleName  = this.attribname[0];
+        const simpleValue = this.attribvalue[0];
+        if (
+            this.attribname.length === 1 && typeof simpleName === 'string' &&
+            this.attribvalue.length <= 1 && (typeof simpleValue === 'string' || simpleValue === undefined)
+        ) {
+            if (!this.attribs) {
+                this.attribs = {};
+            }
+            if (!this.attribs.hasOwnProperty(simpleName)) {
+                this.attribs[simpleName] = quote === undefined ? true : simpleValue || '';
+            }
+        }
+        else {
+            if (!this.iattribs) {
+                this.iattribs = [];
+            }
+            const existing = this.iattribs.findIndex(kv => dcEqual(kv[0], this.attribname));
+            if (existing === -1) {
+                this.iattribs.push([this.attribname, this.attribvalue]);
+            }
+        }
+
+        this.attribname = [];
+        this.attribvalue = [];
     }
 
     private getInstructionName(value: string) {
@@ -430,8 +455,9 @@ export class Parser {
         this.cbs.onreset?.();
         this.tokenizer.reset();
         this.tagname = "";
-        this.attribname = "";
+        this.attribname = [];
         this.attribs = null;
+        this.iattribs = null;
         this.stack = [];
         this.cbs.onparserinit?.(this);
     }
@@ -497,4 +523,24 @@ export class Parser {
     public done(chunk?: string): void {
         this.end(chunk);
     }
+}
+
+export class Interpolation {
+    constructor(public code: string) {}
+    valueOf() { return this.code }
+}
+
+function dcEqual(xs: DynamicContent, ys: DynamicContent) {
+    if (xs.length !== ys.length) return false
+    for (var i=0; i < xs.length; i++) {
+        const x = xs[i]
+        const y = ys[i] as any
+        if (
+            typeof x === 'string' && x !== y ||
+            typeof x !== 'string' && x.code !== y.code
+        ) {
+            return false
+        }
+    }
+    return true
 }

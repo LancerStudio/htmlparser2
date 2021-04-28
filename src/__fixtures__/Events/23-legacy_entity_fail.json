@@ -4,7 +4,9 @@
     "expected": [
         {
             "event": "text",
-            "data": ["M&M"]
+            "data": [
+                "M&M"
+            ]
         }
     ]
 }

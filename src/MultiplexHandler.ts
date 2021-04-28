@@ -1,4 +1,4 @@
-import type { Parser, Handler } from "./Parser";
+import type { Parser, Handler, DynamicContent, ParsedAttribute, Attributes } from "./Parser";
 
 /**
  * Calls a specific handler function for all events that are encountered.
@@ -15,8 +15,8 @@ export default class MultiplexHandler implements Handler {
     ) {}
 
     onattribute(
-        name: string,
-        value: string,
+        name: DynamicContent,
+        value: DynamicContent,
         quote: string | null | undefined
     ): void {
         this.func("onattribute", name, value, quote);
@@ -30,6 +30,9 @@ export default class MultiplexHandler implements Handler {
     ontext(text: string): void {
         this.func("ontext", text);
     }
+    oninterpolate(text: string): void {
+        this.func("oninterpolate", text);
+    }
     onprocessinginstruction(name: string, value: string): void {
         this.func("onprocessinginstruction", name, value);
     }
@@ -42,8 +45,8 @@ export default class MultiplexHandler implements Handler {
     onclosetag(name: string): void {
         this.func("onclosetag", name);
     }
-    onopentag(name: string, attribs: { [key: string]: string }): void {
-        this.func("onopentag", name, attribs);
+    onopentag(name: string, attribs: Attributes, iattribs: ParsedAttribute[]): void {
+        this.func("onopentag", name, attribs, iattribs);
     }
     onopentagname(name: string): void {
         this.func("onopentagname", name);

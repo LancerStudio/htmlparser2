@@ -4,23 +4,35 @@
     "expected": [
         {
             "event": "text",
-            "data": ["<"]
+            "data": [
+                "<"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["princess-purpose"]
+            "data": [
+                "princess-purpose"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["princess-purpose", {}]
+            "data": [
+                "princess-purpose",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": [">testing"]
+            "data": [
+                ">testing"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["princess-purpose"]
+            "data": [
+                "princess-purpose"
+            ]
         }
     ]
 }

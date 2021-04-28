@@ -4,19 +4,29 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["script", {}]
+            "data": [
+                "script",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["<"]
+            "data": [
+                "<"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         }
     ]
 }

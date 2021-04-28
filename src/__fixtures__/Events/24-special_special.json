@@ -4,147 +4,241 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["<b>foo</b><title>"]
+            "data": [
+                "<b>foo</b><title>"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["sitle"]
+            "data": [
+                "sitle"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["sitle", {}]
+            "data": [
+                "sitle",
+                null,
+                null
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["b"]
+            "data": [
+                "b"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["b", {}]
+            "data": [
+                "b",
+                null,
+                null
+            ]
         },
         {
             "event": "closetag",
-            "data": ["b"]
+            "data": [
+                "b"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["sitle"]
+            "data": [
+                "sitle"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["ttyle"]
+            "data": [
+                "ttyle"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["ttyle", {}]
+            "data": [
+                "ttyle",
+                null,
+                null
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["b"]
+            "data": [
+                "b"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["b", {}]
+            "data": [
+                "b",
+                null,
+                null
+            ]
         },
         {
             "event": "closetag",
-            "data": ["b"]
+            "data": [
+                "b"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["ttyle"]
+            "data": [
+                "ttyle"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["script", {}]
+            "data": [
+                "script",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["</scripter</soo"]
+            "data": [
+                "</scripter</soo"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["style"]
+            "data": [
+                "style"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["style", {}]
+            "data": [
+                "style",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["</styler"]
+            "data": [
+                "</styler"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["style"]
+            "data": [
+                "style"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["scipt"]
+            "data": [
+                "scipt"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["scipt", {}]
+            "data": [
+                "scipt",
+                null,
+                null
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["stylee"]
+            "data": [
+                "stylee"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["stylee", {}]
+            "data": [
+                "stylee",
+                null,
+                null
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["scriptee"]
+            "data": [
+                "scriptee"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["scriptee", {}]
+            "data": [
+                "scriptee",
+                null,
+                null
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["soo"]
+            "data": [
+                "soo"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["soo", {}]
+            "data": [
+                "soo",
+                null,
+                null
+            ]
         },
         {
             "event": "closetag",
-            "data": ["soo"]
+            "data": [
+                "soo"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["scriptee"]
+            "data": [
+                "scriptee"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["stylee"]
+            "data": [
+                "stylee"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["scipt"]
+            "data": [
+                "scipt"
+            ]
         }
     ]
 }

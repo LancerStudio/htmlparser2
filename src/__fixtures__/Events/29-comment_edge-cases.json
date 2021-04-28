@@ -4,11 +4,30 @@
     "expected": [
         {
             "event": "processinginstruction",
-            "data": ["!-foo", "!-foo"]
+            "data": [
+                "!-foo",
+                "!-foo"
+            ]
         },
-        { "event": "comment", "data": [" --- "] },
-        { "event": "commentend", "data": [] },
-        { "event": "comment", "data": ["foo"] },
-        { "event": "commentend", "data": [] }
+        {
+            "event": "comment",
+            "data": [
+                " --- "
+            ]
+        },
+        {
+            "event": "commentend",
+            "data": []
+        },
+        {
+            "event": "comment",
+            "data": [
+                "foo"
+            ]
+        },
+        {
+            "event": "commentend",
+            "data": []
+        }
     ]
 }

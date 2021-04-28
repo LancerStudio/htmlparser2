@@ -4,23 +4,54 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["button"]
+            "data": [
+                "button"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["class", "test0", "\""]
+            "data": [
+                [
+                    "class"
+                ],
+                [
+                    "test0"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["title", "test1", "\""]
+            "data": [
+                [
+                    "title"
+                ],
+                [
+                    "test1"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["disabled", ""]
+            "data": [
+                [
+                    "disabled"
+                ],
+                []
+            ]
         },
         {
             "event": "attribute",
-            "data": ["value", "test2", null]
+            "data": [
+                [
+                    "value"
+                ],
+                [
+                    "test2"
+                ],
+                null
+            ]
         },
         {
             "event": "opentag",
@@ -29,18 +60,23 @@
                 {
                     "class": "test0",
                     "title": "test1",
-                    "disabled": "",
+                    "disabled": true,
                     "value": "test2"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["adsf"]
+            "data": [
+                "adsf"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["button"]
+            "data": [
+                "button"
+            ]
         }
     ]
 }

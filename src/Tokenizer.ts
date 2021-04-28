@@ -16,11 +16,18 @@ const enum State {
     // Attributes
     BeforeAttributeName,
     InAttributeName,
+    InAttributeNameAfterInterpolate,
     AfterAttributeName,
     BeforeAttributeValue,
+
+    // [group] DONT REORDER
     InAttributeValueDq, // "
+    InAttributeValueDqAfterInterpolate, // "
     InAttributeValueSq, // '
+    InAttributeValueSqAfterInterpolate, // '
     InAttributeValueNq,
+    InAttributeValueNqAfterInterpolate,
+    // [/group]
 
     // Declarations
     BeforeDeclaration, // !
@@ -102,6 +109,11 @@ const enum State {
     AfterTemplate5, // A
     AfterTemplate6, // T
     AfterTemplate7, // E
+
+    // Interpolations
+    BeforeInterpolate, // {
+    InInterpolate,
+    AfterInterpolate, // }
 }
 
 const enum Special {
@@ -121,9 +133,9 @@ function isASCIIAlpha(c: string): boolean {
 }
 
 export interface Callbacks {
-    onattribdata(value: string): void;
+    onattribdata(value: string, isInterpolate: boolean): void;
     onattribend(quote: string | undefined | null): void;
-    onattribname(name: string): void;
+    onattribname(name: string, isInterpolate: boolean): void;
     oncdata(data: string): void;
     onclosetag(name: string): void;
     oncomment(data: string): void;
@@ -134,7 +146,7 @@ export interface Callbacks {
     onopentagname(name: string): void;
     onprocessinginstruction(instruction: string): void;
     onselfclosingtag(): void;
-    ontext(value: string): void;
+    ontext(value: string, isInterpolate: boolean): void;
 }
 
 function ifElseState(upper: string, SUCCESS: State, FAILURE: State) {
@@ -267,6 +279,8 @@ export default class Tokenizer {
     private bufferOffset = 0;
     /** Some behavior, eg. when decoding entities, is done while we are in another state. This keeps track of the other state type. */
     private baseState = State.Text;
+    /** Indicates whether the tokenizer has just read a backslash. */
+    private escaping = false;
     /** For special parsing behavior inside of script and style tags. */
     private special = Special.None;
     /** Indicates whether the tokenizer has been paused. */
@@ -336,7 +350,7 @@ export default class Tokenizer {
     private stateText(c: string) {
         if (c === "<") {
             if (this._index > this.sectionStart) {
-                this.cbs.ontext(this.getSection());
+                this.cbs.ontext(this.getSection(), false);
             }
             this._state = State.BeforeTagName;
             this.sectionStart = this._index;
@@ -346,11 +360,13 @@ export default class Tokenizer {
             (this.special === Special.None || this.special === Special.Title)
         ) {
             if (this._index > this.sectionStart) {
-                this.cbs.ontext(this.getSection());
+                this.cbs.ontext(this.getSection(), false);
             }
             this.baseState = State.Text;
             this._state = State.BeforeEntity;
             this.sectionStart = this._index;
+        } else {
+            this.checkForInterpolate(c, State.Text);
         }
     }
     /**
@@ -369,7 +385,7 @@ export default class Tokenizer {
         if (c === "/") {
             this._state = State.BeforeClosingTagName;
         } else if (c === "<") {
-            this.cbs.ontext(this.getSection());
+            this.cbs.ontext(this.getSection(), false);
             this.sectionStart = this._index;
         } else if (
             c === ">" ||
@@ -449,8 +465,10 @@ export default class Tokenizer {
         } else if (c === "/") {
             this._state = State.InSelfClosingTag;
         } else if (!whitespace(c)) {
+            // console.log("START")
             this._state = State.InAttributeName;
             this.sectionStart = this._index;
+            this.checkForInterpolate(c, State.InAttributeName)
         }
     }
     private stateInSelfClosingTag(c: string) {
@@ -465,11 +483,13 @@ export default class Tokenizer {
         }
     }
     private stateInAttributeName(c: string) {
+        // console.log(`IN ATTR NAME '${c}'`)
         if (c === "=" || c === "/" || c === ">" || whitespace(c)) {
-            this.cbs.onattribname(this.getSection());
-            this.sectionStart = -1;
+            this.emitToken('onattribname');
             this._state = State.AfterAttributeName;
             this._index--;
+        } else {
+            this.checkForInterpolate(c, State.InAttributeName);
         }
     }
     private stateAfterAttributeName(c: string) {
@@ -481,8 +501,10 @@ export default class Tokenizer {
             this._index--;
         } else if (!whitespace(c)) {
             this.cbs.onattribend(undefined);
-            this._state = State.InAttributeName;
+            this._state = State.InAttributeName
             this.sectionStart = this._index;
+            // console.log("AFTER NAME", c)
+            this.checkForInterpolate(c, State.InAttributeName)
         }
     }
     private stateBeforeAttributeValue(c: string) {
@@ -500,15 +522,18 @@ export default class Tokenizer {
     }
     private handleInAttributeValue(c: string, quote: string) {
         if (c === quote) {
-            this.emitToken("onattribdata");
+            this.emitAttribData()
             this.cbs.onattribend(quote);
             this._state = State.BeforeAttributeName;
         } else if (this.decodeEntities && c === "&") {
-            this.emitToken("onattribdata");
+            this.emitAttribData()
             this.baseState = this._state;
             this._state = State.BeforeEntity;
             this.sectionStart = this._index;
+        } else {
+            this.checkForInterpolate(c, this._state+1);
         }
+
     }
     private stateInAttributeValueDoubleQuotes(c: string) {
         this.handleInAttributeValue(c, '"');
@@ -518,15 +543,64 @@ export default class Tokenizer {
     }
     private stateInAttributeValueNoQuotes(c: string) {
         if (whitespace(c) || c === ">") {
-            this.emitToken("onattribdata");
+            this.emitAttribData()
             this.cbs.onattribend(null);
             this._state = State.BeforeAttributeName;
             this._index--;
         } else if (this.decodeEntities && c === "&") {
-            this.emitToken("onattribdata");
+            this.emitAttribData()
             this.baseState = this._state;
             this._state = State.BeforeEntity;
             this.sectionStart = this._index;
+        }
+    }
+    private stateBeforeInterpolate(c: string) {
+        if (c === '{') {
+            const section = this.buffer.substring(this.sectionStart, this._index - 1)
+            if (section.length > 0) {
+                if (this.baseState >= State.InAttributeValueDq && this.baseState <= State.InAttributeValueNqAfterInterpolate) {
+                    this.cbs.onattribdata(section, false);
+                }
+                else if (this.baseState === State.InAttributeName || this.baseState === State.InAttributeNameAfterInterpolate) {
+                    this.cbs.onattribname(section, false);
+                }
+                else if (this._index - 1 > this.sectionStart) {
+                    this.cbs.ontext(section, false);
+                }
+            }
+            this._state = State.InInterpolate;
+            this.sectionStart = this._index - 1;
+        } else {
+            this._state = this.baseState;
+            this._index--; // Consume the token again
+        }
+    }
+    private stateInInterpolate(c: string) {
+        if (c === '}') {
+            this._state = State.AfterInterpolate;
+        }
+    }
+    private stateAfterInterpolate(c: string) {
+        if (c === '}') {
+            // console.log("HM", (this.buffer.substring(this.sectionStart, this._index+1)))
+            const section = this.buffer.substring(this.sectionStart+2, this._index-1)
+
+            if (this.baseState >= State.InAttributeValueDq && this.baseState <= State.InAttributeValueNqAfterInterpolate) {
+                this.cbs.onattribdata(section, true)
+            }
+            else if (this.baseState === State.InAttributeName) {
+                this.cbs.onattribname(section, true)
+            }
+            else if (this.baseState === State.Text) {
+                this.cbs.ontext(section, true)
+            }
+
+            this.sectionStart = this._index + 1;
+            this._state = this.baseState;
+        }
+        else {
+            this._state = State.InInterpolate;
+            this._index--; // Consume the token again
         }
     }
     private stateBeforeDeclaration(c: string) {
@@ -768,6 +842,17 @@ export default class Tokenizer {
         }
     }
 
+    private checkForInterpolate(c: string, stateAfter: State) {
+        if (c === '\\' && !this.escaping) {
+            this.escaping = true;
+        } else if (c === '{' && !this.escaping) {
+            this.baseState = stateAfter;
+            this._state = State.BeforeInterpolate;
+        } else if (this.escaping) {
+            this.escaping = false;
+        }
+    }
+
     private cleanup() {
         if (this.sectionStart < 0) {
             this.buffer = "";
@@ -776,7 +861,7 @@ export default class Tokenizer {
         } else if (this.running) {
             if (this._state === State.Text) {
                 if (this.sectionStart !== this._index) {
-                    this.cbs.ontext(this.buffer.substr(this.sectionStart));
+                    this.cbs.ontext(this.buffer.substr(this.sectionStart), false);
                 }
                 this.buffer = "";
                 this.bufferOffset += this._index;
@@ -804,11 +889,12 @@ export default class Tokenizer {
     private parse() {
         while (this._index < this.buffer.length && this.running) {
             const c = this.buffer.charAt(this._index);
+            // console.log(`[${this._index}]`, c, this._state, '?', State.BeforeInterpolate, State.InInterpolate, State.AfterInterpolate, this.escaping)
             if (this._state === State.Text) {
                 this.stateText(c);
-            } else if (this._state === State.InAttributeValueDq) {
+            } else if (this._state === State.InAttributeValueDq || this._state === State.InAttributeValueDqAfterInterpolate) {
                 this.stateInAttributeValueDoubleQuotes(c);
-            } else if (this._state === State.InAttributeName) {
+            } else if (this._state === State.InAttributeName || this._state === State.InAttributeNameAfterInterpolate) {
                 this.stateInAttributeName(c);
             } else if (this._state === State.InComment) {
                 this.stateInComment(c);
@@ -824,7 +910,7 @@ export default class Tokenizer {
                 this.stateBeforeTagName(c);
             } else if (this._state === State.AfterAttributeName) {
                 this.stateAfterAttributeName(c);
-            } else if (this._state === State.InAttributeValueSq) {
+            } else if (this._state === State.InAttributeValueSq || this._state === State.InAttributeValueSqAfterInterpolate) {
                 this.stateInAttributeValueSingleQuotes(c);
             } else if (this._state === State.BeforeAttributeValue) {
                 this.stateBeforeAttributeValue(c);
@@ -836,7 +922,7 @@ export default class Tokenizer {
                 this.stateBeforeSpecialS(c);
             } else if (this._state === State.AfterComment1) {
                 this.stateAfterComment1(c);
-            } else if (this._state === State.InAttributeValueNq) {
+            } else if (this._state === State.InAttributeValueNq || this._state === State.InAttributeValueNqAfterInterpolate) {
                 this.stateInAttributeValueNoQuotes(c);
             } else if (this._state === State.InSelfClosingTag) {
                 this.stateInSelfClosingTag(c);
@@ -936,6 +1022,12 @@ export default class Tokenizer {
                 stateAfterTemplate6(this, c);
             } else if (this._state === State.AfterTemplate7) {
                 this.stateAfterSpecialLast(c, 8);
+            } else if (this._state === State.BeforeInterpolate) {
+                this.stateBeforeInterpolate(c);
+            } else if (this._state === State.InInterpolate) {
+                this.stateInInterpolate(c);
+            } else if (this._state === State.AfterInterpolate) {
+                this.stateAfterInterpolate(c);
             } else if (this._state === State.InProcessingInstruction) {
                 this.stateInProcessingInstruction(c);
             } else if (this._state === State.InNamedEntity) {
@@ -1024,7 +1116,7 @@ export default class Tokenizer {
             this._state !== State.InAttributeValueNq &&
             this._state !== State.InClosingTagName
         ) {
-            this.cbs.ontext(data);
+            this.cbs.ontext(data, false);
         }
         /*
          * Else, ignore remaining data
@@ -1035,15 +1127,31 @@ export default class Tokenizer {
     private getSection(): string {
         return this.buffer.substring(this.sectionStart, this._index);
     }
-    private emitToken(name: "onopentagname" | "onclosetag" | "onattribdata") {
-        this.cbs[name](this.getSection());
+    private emitToken(name: "onopentagname" | "onclosetag" | "onattribdata" | "onattribname") {
+        const section = this.getSection()
+        if (section.length > 0 || name !== 'onattribname') {
+            this.cbs[name](this.getSection(), false);
+        }
+        this.sectionStart = -1;
+    }
+    private emitAttribData() {
+        const section = this.getSection()
+        if (
+            section.length > 0 ||
+            // Only emit empty strings if no interpolations are present
+            this._state !== State.InAttributeValueDqAfterInterpolate &&
+            this._state !== State.InAttributeValueSqAfterInterpolate &&
+            this._state !== State.InAttributeValueNqAfterInterpolate
+        ) {
+            this.cbs.onattribdata(section, false)
+        }
         this.sectionStart = -1;
     }
     private emitPartial(value: string) {
         if (this.baseState !== State.Text) {
-            this.cbs.onattribdata(value); // TODO implement the new event
+            this.cbs.onattribdata(value, false); // TODO implement the new event
         } else {
-            this.cbs.ontext(value);
+            this.cbs.ontext(value, false);
         }
     }
 }

@@ -4,15 +4,30 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["p"]
+            "data": [
+                "p"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["<", "", "'"]
+            "data": [
+                [
+                    "<"
+                ],
+                [
+                    ""
+                ],
+                "'"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["fail", ""]
+            "data": [
+                [
+                    "fail"
+                ],
+                []
+            ]
         },
         {
             "event": "opentag",
@@ -20,17 +35,22 @@
                 "p",
                 {
                     "<": "",
-                    "fail": ""
-                }
+                    "fail": true
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["stuff"]
+            "data": [
+                "stuff"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["p"]
+            "data": [
+                "p"
+            ]
         }
     ]
 }

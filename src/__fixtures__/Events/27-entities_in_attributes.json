@@ -4,23 +4,57 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["foo"]
+            "data": [
+                "foo"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["bar", "&", null]
+            "data": [
+                [
+                    "bar"
+                ],
+                [
+                    "&"
+                ],
+                null
+            ]
         },
         {
             "event": "attribute",
-            "data": ["baz", "&", "\""]
+            "data": [
+                [
+                    "baz"
+                ],
+                [
+                    "&"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["boo", "&", "'"]
+            "data": [
+                [
+                    "boo"
+                ],
+                [
+                    "&"
+                ],
+                "'"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["noo", "", null]
+            "data": [
+                [
+                    "noo"
+                ],
+                [
+                    ""
+                ],
+                null
+            ]
         },
         {
             "event": "opentag",
@@ -31,12 +65,15 @@
                     "baz": "&",
                     "boo": "&",
                     "noo": ""
-                }
+                },
+                null
             ]
         },
         {
             "event": "closetag",
-            "data": ["foo"]
+            "data": [
+                "foo"
+            ]
         }
     ]
 }

@@ -4,19 +4,29 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["the \"title\""]
+            "data": [
+                "the \"title\""
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         }
     ]
 }

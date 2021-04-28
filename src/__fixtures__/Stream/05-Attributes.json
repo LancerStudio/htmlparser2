@@ -4,79 +4,126 @@
     "expected": [
         {
             "event": "processinginstruction",
-            "data": ["!doctype", "!doctype html"]
+            "data": [
+                "!doctype",
+                "!doctype html"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["html"]
+            "data": [
+                "html"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["html", {}]
+            "data": [
+                "html",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["head"]
+            "data": [
+                "head"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["head", {}]
+            "data": [
+                "head",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Attributes test"]
+            "data": [
+                "Attributes test"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["head"]
+            "data": [
+                "head"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["body"]
+            "data": [
+                "body"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["body", {}]
+            "data": [
+                "body",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "comment",
-            "data": [" Normal attributes "]
+            "data": [
+                " Normal attributes "
+            ]
         },
         {
             "event": "commentend",
@@ -84,23 +131,51 @@
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["button"]
+            "data": [
+                "button"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["id", "test0", "\""]
+            "data": [
+                [
+                    "id"
+                ],
+                [
+                    "test0"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["class", "value0", "\""]
+            "data": [
+                [
+                    "class"
+                ],
+                [
+                    "value0"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["title", "value1", "\""]
+            "data": [
+                [
+                    "title"
+                ],
+                [
+                    "value1"
+                ],
+                "\""
+            ]
         },
         {
             "event": "opentag",
@@ -110,24 +185,33 @@
                     "id": "test0",
                     "class": "value0",
                     "title": "value1"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["class=\"value0\" title=\"value1\""]
+            "data": [
+                "class=\"value0\" title=\"value1\""
+            ]
         },
         {
             "event": "closetag",
-            "data": ["button"]
+            "data": [
+                "button"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\n\t"]
+            "data": [
+                "\n\n\t"
+            ]
         },
         {
             "event": "comment",
-            "data": [" Attributes with no quotes or value "]
+            "data": [
+                " Attributes with no quotes or value "
+            ]
         },
         {
             "event": "commentend",
@@ -135,23 +219,48 @@
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["button"]
+            "data": [
+                "button"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["id", "test1", "\""]
+            "data": [
+                [
+                    "id"
+                ],
+                [
+                    "test1"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["class", "value2", null]
+            "data": [
+                [
+                    "class"
+                ],
+                [
+                    "value2"
+                ],
+                null
+            ]
         },
         {
             "event": "attribute",
-            "data": ["disabled", ""]
+            "data": [
+                [
+                    "disabled"
+                ],
+                []
+            ]
         },
         {
             "event": "opentag",
@@ -160,21 +269,28 @@
                 {
                     "id": "test1",
                     "class": "value2",
-                    "disabled": ""
-                }
+                    "disabled": true
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["class=value2 disabled"]
+            "data": [
+                "class=value2 disabled"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["button"]
+            "data": [
+                "button"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\n\t"]
+            "data": [
+                "\n\n\t"
+            ]
         },
         {
             "event": "comment",
@@ -188,23 +304,51 @@
         },
         {
             "event": "text",
-            "data": ["\n\t"]
+            "data": [
+                "\n\t"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["button"]
+            "data": [
+                "button"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["id", "test2", "\""]
+            "data": [
+                [
+                    "id"
+                ],
+                [
+                    "test2"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["class", "value4", "\""]
+            "data": [
+                [
+                    "class"
+                ],
+                [
+                    "value4"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["title", "value5", "\""]
+            "data": [
+                [
+                    "title"
+                ],
+                [
+                    "value5"
+                ],
+                "\""
+            ]
         },
         {
             "event": "opentag",
@@ -214,32 +358,45 @@
                     "id": "test2",
                     "class": "value4",
                     "title": "value5"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["class=\"value4\"title=\"value5\""]
+            "data": [
+                "class=\"value4\"title=\"value5\""
+            ]
         },
         {
             "event": "closetag",
-            "data": ["button"]
+            "data": [
+                "button"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["body"]
+            "data": [
+                "body"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["html"]
+            "data": [
+                "html"
+            ]
         }
     ]
 }

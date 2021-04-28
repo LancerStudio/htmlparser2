@@ -1,15 +1,22 @@
 {
     "name": "RSS feed",
-    "options": { "xmlMode": true },
+    "options": {
+        "xmlMode": true
+    },
     "file": "RSS_Example.xml",
     "expected": [
         {
             "event": "processinginstruction",
-            "data": ["?xml", "?xml version=\"1.0\"?"]
+            "data": [
+                "?xml",
+                "?xml version=\"1.0\"?"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "comment",
@@ -23,15 +30,27 @@
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["rss"]
+            "data": [
+                "rss"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["version", "2.0", "\""]
+            "data": [
+                [
+                    "version"
+                ],
+                [
+                    "2.0"
+                ],
+                "\""
+            ]
         },
         {
             "event": "opentag",
@@ -39,284 +58,453 @@
                 "rss",
                 {
                     "version": "2.0"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["\n   "]
+            "data": [
+                "\n   "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["channel"]
+            "data": [
+                "channel"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["channel", {}]
+            "data": [
+                "channel",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Liftoff News"]
+            "data": [
+                "Liftoff News"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["link", {}]
+            "data": [
+                "link",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["http://liftoff.msfc.nasa.gov/"]
+            "data": [
+                "http://liftoff.msfc.nasa.gov/"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["description", {}]
+            "data": [
+                "description",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Liftoff to Space Exploration."]
+            "data": [
+                "Liftoff to Space Exploration."
+            ]
         },
         {
             "event": "closetag",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["language"]
+            "data": [
+                "language"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["language", {}]
+            "data": [
+                "language",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["en-us"]
+            "data": [
+                "en-us"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["language"]
+            "data": [
+                "language"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["pubDate", {}]
+            "data": [
+                "pubDate",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Tue, 10 Jun 2003 04:00:00 GMT"]
+            "data": [
+                "Tue, 10 Jun 2003 04:00:00 GMT"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\n      "]
+            "data": [
+                "\n\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["lastBuildDate"]
+            "data": [
+                "lastBuildDate"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["lastBuildDate", {}]
+            "data": [
+                "lastBuildDate",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Tue, 10 Jun 2003 09:41:01 GMT"]
+            "data": [
+                "Tue, 10 Jun 2003 09:41:01 GMT"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["lastBuildDate"]
+            "data": [
+                "lastBuildDate"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["docs"]
+            "data": [
+                "docs"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["docs", {}]
+            "data": [
+                "docs",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["http://blogs.law.harvard.edu/tech/rss"]
+            "data": [
+                "http://blogs.law.harvard.edu/tech/rss"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["docs"]
+            "data": [
+                "docs"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["generator"]
+            "data": [
+                "generator"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["generator", {}]
+            "data": [
+                "generator",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Weblog Editor 2.0"]
+            "data": [
+                "Weblog Editor 2.0"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["generator"]
+            "data": [
+                "generator"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["managingEditor"]
+            "data": [
+                "managingEditor"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["managingEditor", {}]
+            "data": [
+                "managingEditor",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["editor@example.com"]
+            "data": [
+                "editor@example.com"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["managingEditor"]
+            "data": [
+                "managingEditor"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["webMaster"]
+            "data": [
+                "webMaster"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["webMaster", {}]
+            "data": [
+                "webMaster",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["webmaster@example.com"]
+            "data": [
+                "webmaster@example.com"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["webMaster"]
+            "data": [
+                "webMaster"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["item", {}]
+            "data": [
+                "item",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\n         "]
+            "data": [
+                "\n\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Star City"]
+            "data": [
+                "Star City"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["link", {}]
+            "data": [
+                "link",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp"]
+            "data": [
+                "http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["description", {}]
+            "data": [
+                "description",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
@@ -326,79 +514,125 @@
         },
         {
             "event": "closetag",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["pubDate", {}]
+            "data": [
+                "pubDate",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Tue, 03 Jun 2003 09:39:21 GMT"]
+            "data": [
+                "Tue, 03 Jun 2003 09:39:21 GMT"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["guid"]
+            "data": [
+                "guid"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["guid", {}]
+            "data": [
+                "guid",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["http://liftoff.msfc.nasa.gov/2003/06/03.html#item573"]
+            "data": [
+                "http://liftoff.msfc.nasa.gov/2003/06/03.html#item573"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["guid"]
+            "data": [
+                "guid"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\n      "]
+            "data": [
+                "\n\n      "
+            ]
         },
         {
             "event": "closetag",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["item", {}]
+            "data": [
+                "item",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["description", {}]
+            "data": [
+                "description",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
@@ -408,119 +642,189 @@
         },
         {
             "event": "closetag",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["pubDate", {}]
+            "data": [
+                "pubDate",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Fri, 30 May 2003 11:06:42 GMT"]
+            "data": [
+                "Fri, 30 May 2003 11:06:42 GMT"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["guid"]
+            "data": [
+                "guid"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["guid", {}]
+            "data": [
+                "guid",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["http://liftoff.msfc.nasa.gov/2003/05/30.html#item572"]
+            "data": [
+                "http://liftoff.msfc.nasa.gov/2003/05/30.html#item572"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["guid"]
+            "data": [
+                "guid"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\n      "]
+            "data": [
+                "\n\n      "
+            ]
         },
         {
             "event": "closetag",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["item", {}]
+            "data": [
+                "item",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["The Engine That Does More"]
+            "data": [
+                "The Engine That Does More"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["link", {}]
+            "data": [
+                "link",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp"]
+            "data": [
+                "http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["description", {}]
+            "data": [
+                "description",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
@@ -530,119 +834,189 @@
         },
         {
             "event": "closetag",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["pubDate", {}]
+            "data": [
+                "pubDate",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Tue, 27 May 2003 08:37:32 GMT"]
+            "data": [
+                "Tue, 27 May 2003 08:37:32 GMT"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["guid"]
+            "data": [
+                "guid"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["guid", {}]
+            "data": [
+                "guid",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["http://liftoff.msfc.nasa.gov/2003/05/27.html#item571"]
+            "data": [
+                "http://liftoff.msfc.nasa.gov/2003/05/27.html#item571"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["guid"]
+            "data": [
+                "guid"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\n      "]
+            "data": [
+                "\n\n      "
+            ]
         },
         {
             "event": "closetag",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["item", {}]
+            "data": [
+                "item",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": [
+                "title",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Astronauts' Dirty Laundry"]
+            "data": [
+                "Astronauts' Dirty Laundry"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["title"]
+            "data": [
+                "title"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["link", {}]
+            "data": [
+                "link",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["http://liftoff.msfc.nasa.gov/news/2003/news-laundry.asp"]
+            "data": [
+                "http://liftoff.msfc.nasa.gov/news/2003/news-laundry.asp"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["link"]
+            "data": [
+                "link"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["description", {}]
+            "data": [
+                "description",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
@@ -652,71 +1026,133 @@
         },
         {
             "event": "closetag",
-            "data": ["description"]
+            "data": [
+                "description"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["pubDate", {}]
+            "data": [
+                "pubDate",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["Tue, 20 May 2003 08:56:02 GMT"]
+            "data": [
+                "Tue, 20 May 2003 08:56:02 GMT"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["pubDate"]
+            "data": [
+                "pubDate"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n         "]
+            "data": [
+                "\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["guid"]
+            "data": [
+                "guid"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["guid", {}]
+            "data": [
+                "guid",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["http://liftoff.msfc.nasa.gov/2003/05/20.html#item570"]
+            "data": [
+                "http://liftoff.msfc.nasa.gov/2003/05/20.html#item570"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["guid"]
+            "data": [
+                "guid"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n\n         "]
+            "data": [
+                "\n\n         "
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["media:content"]
+            "data": [
+                "media:content"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["height", "200", "\""]
+            "data": [
+                [
+                    "height"
+                ],
+                [
+                    "200"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["medium", "image", "\""]
+            "data": [
+                [
+                    "medium"
+                ],
+                [
+                    "image"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["url", "https://picsum.photos/200", "\""]
+            "data": [
+                [
+                    "url"
+                ],
+                [
+                    "https://picsum.photos/200"
+                ],
+                "\""
+            ]
         },
         {
             "event": "attribute",
-            "data": ["width", "200", "\""]
+            "data": [
+                [
+                    "width"
+                ],
+                [
+                    "200"
+                ],
+                "\""
+            ]
         },
         {
             "event": "opentag",
@@ -727,36 +1163,51 @@
                     "medium": "image",
                     "url": "https://picsum.photos/200",
                     "width": "200"
-                }
+                },
+                null
             ]
         },
         {
             "event": "closetag",
-            "data": ["media:content"]
+            "data": [
+                "media:content"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n      "]
+            "data": [
+                "\n      "
+            ]
         },
         {
             "event": "closetag",
-            "data": ["item"]
+            "data": [
+                "item"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n   "]
+            "data": [
+                "\n   "
+            ]
         },
         {
             "event": "closetag",
-            "data": ["channel"]
+            "data": [
+                "channel"
+            ]
         },
         {
             "event": "text",
-            "data": ["\n"]
+            "data": [
+                "\n"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["rss"]
+            "data": [
+                "rss"
+            ]
         }
     ]
 }

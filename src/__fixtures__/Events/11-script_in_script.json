@@ -4,31 +4,49 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["p"]
+            "data": [
+                "p"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["p", {}]
+            "data": [
+                "p",
+                null,
+                null
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["script", {}]
+            "data": [
+                "script",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["var str = '<script></'+'script>';"]
+            "data": [
+                "var str = '<script></'+'script>';"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["p"]
+            "data": [
+                "p"
+            ]
         }
     ]
 }

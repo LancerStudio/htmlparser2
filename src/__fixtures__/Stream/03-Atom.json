@@ -29,7 +29,7 @@
         },
         {
             "event": "attribute",
-            "data": ["xmlns", "http://www.w3.org/2005/Atom", "\""]
+            "data": [["xmlns"], ["http://www.w3.org/2005/Atom"], "\""]
         },
         {
             "event": "opentag",
@@ -37,7 +37,8 @@
                 "feed",
                 {
                     "xmlns": "http://www.w3.org/2005/Atom"
-                }
+                },
+                null
             ]
         },
         {
@@ -50,7 +51,7 @@
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": ["title", null, null]
         },
         {
             "event": "text",
@@ -70,7 +71,7 @@
         },
         {
             "event": "opentag",
-            "data": ["subtitle", {}]
+            "data": ["subtitle", null, null]
         },
         {
             "event": "text",
@@ -90,11 +91,11 @@
         },
         {
             "event": "attribute",
-            "data": ["href", "http://example.org/feed/", "\""]
+            "data": [["href"], ["http://example.org/feed/"], "\""]
         },
         {
             "event": "attribute",
-            "data": ["rel", "self", "\""]
+            "data": [["rel"], ["self"], "\""]
         },
         {
             "event": "opentag",
@@ -103,7 +104,8 @@
                 {
                     "href": "http://example.org/feed/",
                     "rel": "self"
-                }
+                },
+                null
             ]
         },
         {
@@ -120,7 +122,7 @@
         },
         {
             "event": "attribute",
-            "data": ["href", "http://example.org/", "\""]
+            "data": [["href"], ["http://example.org/"], "\""]
         },
         {
             "event": "opentag",
@@ -128,7 +130,8 @@
                 "link",
                 {
                     "href": "http://example.org/"
-                }
+                },
+                null
             ]
         },
         {
@@ -145,7 +148,7 @@
         },
         {
             "event": "opentag",
-            "data": ["id", {}]
+            "data": ["id", null, null]
         },
         {
             "event": "text",
@@ -165,7 +168,7 @@
         },
         {
             "event": "opentag",
-            "data": ["updated", {}]
+            "data": ["updated", null, null]
         },
         {
             "event": "text",
@@ -185,7 +188,7 @@
         },
         {
             "event": "opentag",
-            "data": ["author", {}]
+            "data": ["author", null, null]
         },
         {
             "event": "text",
@@ -197,7 +200,7 @@
         },
         {
             "event": "opentag",
-            "data": ["name", {}]
+            "data": ["name", null, null]
         },
         {
             "event": "text",
@@ -217,7 +220,7 @@
         },
         {
             "event": "opentag",
-            "data": ["email", {}]
+            "data": ["email", null, null]
         },
         {
             "event": "text",
@@ -245,7 +248,7 @@
         },
         {
             "event": "opentag",
-            "data": ["entry", {}]
+            "data": ["entry", null, null]
         },
         {
             "event": "text",
@@ -257,7 +260,7 @@
         },
         {
             "event": "opentag",
-            "data": ["title", {}]
+            "data": ["title", null, null]
         },
         {
             "event": "text",
@@ -277,7 +280,7 @@
         },
         {
             "event": "attribute",
-            "data": ["href", "http://example.org/2003/12/13/atom03", "\""]
+            "data": [["href"], ["http://example.org/2003/12/13/atom03"], "\""]
         },
         {
             "event": "opentag",
@@ -285,7 +288,8 @@
                 "link",
                 {
                     "href": "http://example.org/2003/12/13/atom03"
-                }
+                },
+                null
             ]
         },
         {
@@ -302,15 +306,15 @@
         },
         {
             "event": "attribute",
-            "data": ["rel", "alternate", "\""]
+            "data": [["rel"], ["alternate"], "\""]
         },
         {
             "event": "attribute",
-            "data": ["type", "text/html", "\""]
+            "data": [["type"], ["text/html"], "\""]
         },
         {
             "event": "attribute",
-            "data": ["href", "http://example.org/2003/12/13/atom03.html", "\""]
+            "data": [["href"], ["http://example.org/2003/12/13/atom03.html"], "\""]
         },
         {
             "event": "opentag",
@@ -320,7 +324,8 @@
                     "rel": "alternate",
                     "type": "text/html",
                     "href": "http://example.org/2003/12/13/atom03.html"
-                }
+                },
+                null
             ]
         },
         {
@@ -337,11 +342,11 @@
         },
         {
             "event": "attribute",
-            "data": ["rel", "edit", "\""]
+            "data": [["rel"], ["edit"], "\""]
         },
         {
             "event": "attribute",
-            "data": ["href", "http://example.org/2003/12/13/atom03/edit", "\""]
+            "data": [["href"], ["http://example.org/2003/12/13/atom03/edit"], "\""]
         },
         {
             "event": "opentag",
@@ -350,7 +355,8 @@
                 {
                     "rel": "edit",
                     "href": "http://example.org/2003/12/13/atom03/edit"
-                }
+                },
+                null
             ]
         },
         {
@@ -367,7 +373,7 @@
         },
         {
             "event": "opentag",
-            "data": ["id", {}]
+            "data": ["id", null, null]
         },
         {
             "event": "text",
@@ -387,7 +393,7 @@
         },
         {
             "event": "opentag",
-            "data": ["updated", {}]
+            "data": ["updated", null, null]
         },
         {
             "event": "text",
@@ -407,7 +413,7 @@
         },
         {
             "event": "attribute",
-            "data": ["type", "html", "\""]
+            "data": [["type"], ["html"], "\""]
         },
         {
             "event": "opentag",
@@ -415,7 +421,8 @@
                 "content",
                 {
                     "type": "html"
-                }
+                },
+                null
             ]
         },
         {
@@ -424,7 +431,7 @@
         },
         {
             "event": "opentag",
-            "data": ["p", {}]
+            "data": ["p", null, null]
         },
         {
             "event": "text",
@@ -455,7 +462,7 @@
             "event": "opentagname"
         },
         {
-            "data": ["entry", {}],
+            "data": ["entry", null, null],
             "event": "opentag"
         },
         {

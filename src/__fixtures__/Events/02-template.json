@@ -4,19 +4,35 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["p"]
+            "data": [
+                "p"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["p", {}]
+            "data": [
+                "p",
+                null,
+                null
+            ]
         },
         {
             "event": "opentagname",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         },
         {
             "event": "attribute",
-            "data": ["type", "text/template", "\""]
+            "data": [
+                [
+                    "type"
+                ],
+                [
+                    "text/template"
+                ],
+                "\""
+            ]
         },
         {
             "event": "opentag",
@@ -24,20 +40,27 @@
                 "script",
                 {
                     "type": "text/template"
-                }
+                },
+                null
             ]
         },
         {
             "event": "text",
-            "data": ["<h1>Heading1</h1>"]
+            "data": [
+                "<h1>Heading1</h1>"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["p"]
+            "data": [
+                "p"
+            ]
         }
     ]
 }

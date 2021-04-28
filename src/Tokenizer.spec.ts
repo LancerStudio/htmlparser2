@@ -3,14 +3,16 @@ import { Tokenizer } from ".";
 class CallbackLogger {
     log: string[] = [];
 
-    onattribdata(value: string) {
-        this.log.push(`onattribdata: '${value}'`);
+    onattribdata(value: string, isInterpolate: boolean) {
+        this.log.push(`onattribdata: '${value}'${isInterpolate ? ' true' : ''}`);
     }
     onattribend() {
         this.log.push(`onattribend`);
     }
-    onattribname(name: string) {
-        this.log.push(`onattribname: '${name}'`);
+    onattribname(name: string, isInterpolate: boolean) {
+        this.log.push(`onattribname: '${name}'${isInterpolate ? ' true' : ''}`);
+    }
+    onattribnameend() {
     }
     oncdata(data: string) {
         this.log.push(`oncdata: '${data}'`);
@@ -42,8 +44,11 @@ class CallbackLogger {
     onselfclosingtag() {
         this.log.push(`onselfclosingtag`);
     }
-    ontext(value: string) {
-        this.log.push(`ontext: '${value}'`);
+    ontext(value: string, isInterpolate: boolean) {
+        this.log.push(`ontext: '${value}'${isInterpolate ? ' true' : ''}`);
+    }
+    oninterpolate(value: string) {
+        this.log.push(`oninterpolate: '${value}'`);
     }
 }
 
@@ -209,4 +214,95 @@ describe("Tokenizer", () => {
         tokenizer.reset();
         logger.log = [];
     });
+
+    test("should tokenize normal attributes", () => {
+        const logger = new CallbackLogger();
+        const tokenizer = new Tokenizer(
+            {
+                xmlMode: false,
+                decodeEntities: false,
+            },
+            logger
+        );
+
+        const input = `<script defer src="/foo.js"></script>`
+
+        tokenizer.write(input);
+        tokenizer.end();
+        expect(logger.log).toEqual([
+          "onopentagname: 'script'",
+          "onattribname: 'defer'",
+          'onattribend',
+          "onattribname: 'src'",
+          "onattribdata: '/foo.js'",
+          'onattribend',
+          'onopentagend',
+          "onclosetag: 'script'",
+          'onend'
+        ]);
+
+    })
+
+    test("should support interpolation syntax in attributes (Lancer)", () => {
+        const logger = new CallbackLogger();
+        const tokenizer = new Tokenizer(
+            {
+                xmlMode: false,
+                decodeEntities: false,
+            },
+            logger
+        );
+
+        const input = `<div a-{{b}}-label='{{ c +1}}' lone {{d}}="e"  {{f + f }}="g{{h }}i"></div>`;
+
+        tokenizer.write(input);
+        tokenizer.end();
+        expect(logger.log).toEqual([
+          "onopentagname: 'div'",
+          "onattribname: 'a-'",
+          "onattribname: 'b' true",
+          "onattribname: '-label'",
+          "onattribdata: ' c +1' true",
+          'onattribend',
+          "onattribname: 'lone'",
+          'onattribend',
+          "onattribname: 'd' true",
+          "onattribdata: 'e'",
+          'onattribend',
+          "onattribname: 'f + f ' true",
+          "onattribdata: 'g'",
+          "onattribdata: 'h ' true",
+          "onattribdata: 'i'",
+          'onattribend',
+          'onopentagend',
+          "onclosetag: 'div'",
+          'onend'
+        ]);
+    })
+
+    test("should support interpolation syntax in text (Lancer)", () => {
+        const logger = new CallbackLogger();
+        const tokenizer = new Tokenizer(
+            {
+                xmlMode: false,
+                decodeEntities: false,
+            },
+            logger
+        );
+
+        const input = `<div>a{{ b + b }}c\\{{d}}</div>`;
+
+        tokenizer.write(input);
+        tokenizer.end();
+        expect(logger.log).toEqual([
+            "onopentagname: 'div'",
+            'onopentagend',
+            "ontext: 'a'",
+            "ontext: ' b + b ' true",
+            "ontext: 'c\\{{d}}'",
+            "onclosetag: 'div'",
+            'onend'
+        ]);
+
+    })
 });

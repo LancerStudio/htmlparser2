@@ -2,7 +2,15 @@
     "name": "Comment false ending",
     "html": "<!-- a-b-> -->",
     "expected": [
-        { "event": "comment", "data": [" a-b-> "] },
-        { "event": "commentend", "data": [] }
+        {
+            "event": "comment",
+            "data": [
+                " a-b-> "
+            ]
+        },
+        {
+            "event": "commentend",
+            "data": []
+        }
     ]
 }

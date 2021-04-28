@@ -4,19 +4,29 @@
     "expected": [
         {
             "event": "opentagname",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         },
         {
             "event": "opentag",
-            "data": ["script", {}]
+            "data": [
+                "script",
+                null,
+                null
+            ]
         },
         {
             "event": "text",
-            "data": ["/*<![CDATA[*/ asdf ><asdf></adsf><> fo/*]]>*/"]
+            "data": [
+                "/*<![CDATA[*/ asdf ><asdf></adsf><> fo/*]]>*/"
+            ]
         },
         {
             "event": "closetag",
-            "data": ["script"]
+            "data": [
+                "script"
+            ]
         }
     ]
 }

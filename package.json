@@ -1,14 +1,10 @@
 {
-    "name": "@lancer/htmlparser2",
-    "description": "Fast & forgiving HTML/XML parser",
-    "version": "6.1.0-fork.2",
-    "author": "Felix Boehm <me@feedic.com>",
-    "funding": [
-        "https://github.com/fb55/htmlparser2?sponsor=1",
-        {
-            "type": "github",
-            "url": "https://github.com/sponsors/fb55"
-        }
+    "name": "@lancer/ihtml-parser",
+    "description": "Fast & forgiving HTML/XML parser, with code interpolation",
+    "version": "1.0.0",
+    "author": "Gilbert <gilbert@lancer.studio>",
+    "contributors": [
+        "Felix Boehm <me@feedic.com>"
     ],
     "license": "MIT",
     "sideEffects": false,
@@ -20,7 +16,8 @@
         "dom",
         "rss",
         "feed",
-        "atom"
+        "atom",
+        "interpolation"
     ],
     "repository": {
         "type": "git",

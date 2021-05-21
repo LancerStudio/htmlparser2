@@ -174,4 +174,25 @@ describe("API", () => {
         expect(finished).toBe(true);
         expect(text).toEqual(['a ', new Interpolation(' b + 1'), ' c '])
     });
+
+    test("should parse complex attributes", () => {
+        let finished = false;
+        let attrs = {} as Attributes;
+        let iattrs = [] as ParsedAttribute[]
+        const p = new Parser({
+            onopentag(_name, _attrs, _iattrs) {
+                attrs = _attrs as any;
+                iattrs = _iattrs as any;
+            },
+            onend() {
+                finished = true;
+            },
+        });
+
+        p.end(`<p args="{ a: one.two, b: three.get(\`four\${five}\`) }"></p>`);
+
+        expect(finished).toBe(true);
+        expect(attrs).toEqual({ args: "{ a: one.two, b: three.get(`four${five}`) }" })
+        expect(iattrs).toEqual(null)
+    });
 });

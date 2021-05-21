@@ -21,7 +21,7 @@ const enum State {
     BeforeAttributeValue,
 
     // [group] DONT REORDER
-    InAttributeValueDq, // "
+    InAttributeValueDq = 20, // "
     InAttributeValueDqAfterInterpolate, // "
     InAttributeValueSq, // '
     InAttributeValueSqAfterInterpolate, // '
@@ -465,7 +465,6 @@ export default class Tokenizer {
         } else if (c === "/") {
             this._state = State.InSelfClosingTag;
         } else if (!whitespace(c)) {
-            // console.log("START")
             this._state = State.InAttributeName;
             this.sectionStart = this._index;
             this.checkForInterpolate(c, State.InAttributeName)
@@ -483,7 +482,6 @@ export default class Tokenizer {
         }
     }
     private stateInAttributeName(c: string) {
-        // console.log(`IN ATTR NAME '${c}'`)
         if (c === "=" || c === "/" || c === ">" || whitespace(c)) {
             this.emitToken('onattribname');
             this._state = State.AfterAttributeName;
@@ -503,7 +501,6 @@ export default class Tokenizer {
             this.cbs.onattribend(undefined);
             this._state = State.InAttributeName
             this.sectionStart = this._index;
-            // console.log("AFTER NAME", c)
             this.checkForInterpolate(c, State.InAttributeName)
         }
     }
@@ -531,7 +528,7 @@ export default class Tokenizer {
             this._state = State.BeforeEntity;
             this.sectionStart = this._index;
         } else {
-            this.checkForInterpolate(c, this._state+1);
+            this.checkForInterpolate(c, this._state + (this._state % 2 === 0 ? 1 : -1));
         }
 
     }
@@ -582,7 +579,6 @@ export default class Tokenizer {
     }
     private stateAfterInterpolate(c: string) {
         if (c === '}') {
-            // console.log("HM", (this.buffer.substring(this.sectionStart, this._index+1)))
             const section = this.buffer.substring(this.sectionStart+2, this._index-1)
 
             if (this.baseState >= State.InAttributeValueDq && this.baseState <= State.InAttributeValueNqAfterInterpolate) {

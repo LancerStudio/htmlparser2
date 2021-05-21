@@ -1,7 +1,7 @@
 {
     "name": "@lancer/ihtml-parser",
     "description": "Fast & forgiving HTML/XML parser, with code interpolation",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Gilbert <gilbert@lancer.studio>",
     "contributors": [
         "Felix Boehm <me@feedic.com>"
